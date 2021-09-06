@@ -1,0 +1,34 @@
+<div class="container"> 
+    <div class="row"> 
+        <div class="col-sm-12"> 
+            <h1>Employee Confirmed Details</h1> 
+        </div> 
+    </div> <br> <br> 
+    <div class="row"> 
+        <div class="col-xs-12"> 
+          
+          <input type="text" id="searchTextId" [(ngModel)]="searchText" name="searchText"
+          placeholder="Search By Name">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Address</th>
+                      <th>EmailId</th>
+                      <th>Date of birth</th>
+                    </tr>
+                  </thead>
+                  <tbody id="myTable">
+                    <tr  *ngFor="let employee of (employeeInfo | searchbyname: searchText)">
+                      <td>{{employee.name}}</td>
+                      <td>{{employee.eid}}</td>
+                      <td>{{employee.email}}</td>
+                      <td>{{employee.dob}}</td>
+                    </tr>
+                  </tbody>
+            
+                </table>
+        </div> 
+    </div> 
+</div>
+

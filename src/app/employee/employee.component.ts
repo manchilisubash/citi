@@ -26,6 +26,7 @@ export class EmployeeComponent implements OnInit {
   } 
 
   ngOnInit(): void {
+   // console.log("this is inside element ts");
     this.confirmForm = new FormGroup({ name : new FormControl(this.name), 
       dob: new FormControl(this.dob),
       email: new FormControl(this.email),

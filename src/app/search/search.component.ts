@@ -8,6 +8,7 @@ import { FormControl, FormGroup} from '@angular/forms';
 import { SearchbynamePipe } from '../searchbyname.pipe';
 import { TableComponent } from '../table/table.component';
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -15,16 +16,20 @@ import { TableComponent } from '../table/table.component';
 })
 export class SearchComponent implements OnInit {
 
-  searchText: "";
+  searchText:any;
   employeeInfo : Employee[]=[]; 
   constructor(private ss : SharedService) {
 
   } 
   ngOnInit(): void { 
-    
+
     this.ss.newEmployee.subscribe( (employee:Employee[])=>{
       this.employeeInfo = employee; 
     } ); 
     this.employeeInfo = this.ss.getEmployee();
-  } 
+  }
+  updateText(searchText:any){
+    this.ss.updateData(searchText);
+      }
+  
 }
